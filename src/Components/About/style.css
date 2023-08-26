@@ -1,0 +1,331 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+body {
+  color: black;
+  margin: 0;
+}
+
+section {
+  width: 100%;
+  float: left;
+  height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* !MAIN SECTION! */
+
+#section-main {
+  height: 125vh;
+}
+
+/* !TU MIJENJAJ DA POPRAVIS NAVBAR NA HOME */
+/* #navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 20vh;
+} */
+
+#navbar-logo {
+  margin-left: 2vw;
+  margin-top: 0;
+}
+
+#navbar-logo img {
+  width: 9vw;
+  height: 10vh;
+}
+
+#navbar-links ul {
+  display: flex;
+  margin-left: -2vw;
+}
+
+#navbar-link {
+  font-size: 3vh;
+  color: rgb(219, 219, 219);
+  font-weight: 500;
+  list-style-type: none;
+  margin-left: 3vw;
+  margin-top: 1vh;
+  cursor: pointer;
+}
+
+#navbar-button {
+  color: rgb(227, 227, 227);
+  height: 5.5vh;
+  width: 9vw;
+  border-style: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 2vh;
+  font-weight: 500;
+  margin-top: 2vh;
+  margin-right: 1vw;
+  background-image: linear-gradient(to right, #d66ffb, #262f7c);
+  cursor: pointer;
+}
+/* !ABOUS US SECTION! */
+
+#section-about {
+  background-color: rgb(222, 222, 222);
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#about-left {
+  margin-top: 3vh;
+  margin-left: 5vw;
+}
+
+#about-right {
+  margin-left: -3vw;
+  margin-top: 10vh;
+}
+
+#about-header {
+  width: 65vw;
+  font-size: 1.5vw;
+  font-weight: 900;
+  background: linear-gradient(
+    286.2deg,
+    #2230ac 16.53%,
+    rgba(172, 50, 215, 0.97) 55.25%,
+    #2f149e 89.58%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#about-header2 {
+  font-size: 3vw;
+  font-weight: 900;
+}
+
+#about-text {
+  font-weight: 500;
+  line-height: 3vh;
+}
+
+#about-text-container {
+  width: 35vw;
+}
+
+#about-button {
+  color: rgb(227, 227, 227);
+  height: 5.5vh;
+  width: 9vw;
+  border-style: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 2vh;
+  font-weight: 500;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+  margin-right: 1vw;
+  background-image: linear-gradient(to right, #d66ffb, #262f7c);
+  cursor: pointer;
+}
+
+#about-image {
+  height: 80vh;
+}
+
+/* !OUR TEAM! */
+
+#section-team {
+  margin-top: 10vh;
+  background-image: url(../../../public/img/speakers-bg.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+#speakers-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#speakers-title h2 {
+  margin-top: 1.5vh;
+  background: linear-gradient(266.76deg, #4579ff 1.39%, #d943ff 96.18%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  font-size: 3vh;
+}
+
+#speakers-title h1 {
+  margin-top: 2vh;
+  color: white;
+  font-weight: 800;
+  word-spacing: 0.5vw;
+  font-size: 4vw;
+  margin-bottom: 2vh;
+}
+
+#speakers-cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: url(../../../public/img/speaker-cards-bg.png);
+  background-size: cover;
+  height: 50vh;
+  margin-top: 3vh;
+  font-size: 1.5vh;
+}
+
+#speakers-card {
+  width: 13vw;
+  height: 40vh;
+}
+
+#speaker-image {
+  width: 100%;
+}
+
+#speaker-name {
+  font-size: 25px;
+  margin-top: 0.5vh;
+  font-weight: 600;
+  color: white;
+}
+
+#speaker-position {
+  font-weight: 300;
+  color: white;
+}
+
+#speakers-footer {
+  margin: 3.5vh auto;
+  font-weight: 400;
+  color: white;
+}
+
+/* !BUY TICKETS SECTION! */
+
+#section-buy {
+  height: 65vh;
+  background-image: url(../../../public/img/AboutUs-buy-bg.png);
+  background-size: cover;
+}
+
+#buy-title {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#buy-title h2 {
+  background: linear-gradient(266.76deg, #4579ff 1.39%, #d943ff 96.18%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  font-size: 3vh;
+}
+
+#buy-title h1 {
+  text-align: center;
+  margin-top: 2vh;
+  color: white;
+  font-weight: 800;
+  word-spacing: 0.5vw;
+  font-size: 4vw;
+  margin-bottom: 2vh;
+}
+
+#button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#buy-button {
+  color: rgb(227, 227, 227);
+  height: 5.5vh;
+  width: 9vw;
+  border-style: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 2vh;
+  font-weight: 500;
+  margin-top: 2vh;
+  margin-right: 1vw;
+  background-image: linear-gradient(to right, #d66ffb, #262f7c);
+  cursor: pointer;
+}
+
+/* !FOOTER SECTION! */
+
+#bottom-footer {
+  margin: 0px;
+  background-color: #030712;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#footer-event-details {
+  height: 30vh;
+}
+
+#footer-social-updates {
+  height: 30vh;
+}
+
+#footer-logo {
+  height: 10vh;
+}
+
+#footer-title {
+  color: white;
+  font-size: 5vh;
+  font-weight: 500;
+}
+
+#footer-text {
+  margin-top: 3vh;
+
+  color: white;
+  font-weight: 300;
+  font-size: 2vh;
+}
+
+#footer-date {
+  color: #dd0dff;
+  font-weight: 300;
+}
+
+#footer-map-link {
+  color: #c86c00;
+  text-decoration: underline;
+  font-weight: 800;
+  font-size: 2vh;
+}
+
+#footer-grid-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 6vh;
+  column-gap: 5vh;
+  row-gap: 5vh;
+}
+
+#footer-grid-cell {
+  background-color: white;
+  height: 7vh;
+  width: 5vw;
+}

@@ -1,0 +1,9 @@
+.homeContainer {
+  background-image: url(../../public/img/background-image.png);
+  background-size: cover;
+}
+
+.navbarContainer {
+  background-image: url(../..//public/img/AboutUs-bg.png);
+  background-size: cover;
+}

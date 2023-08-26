@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "6422e5957803c0b247d24b1f"
+  },
+  "dateOfBirth": {
+    "$date": "2000-02-20T00:00:00.000Z"
+  },
+  "email": "tin.vuksan@vuv.hr",
+  "country": "Croatia",
+  "tickets": [
+    ""
+  ],
+  "firstName": "Tin",
+  "gender": "M",
+  "lastName": "Vukšan",
+  "role": "admin",
+  "password": "abcd1234567!"
+},
+{
+  "_id": {
+    "$oid": "64956d844034033689f1055c"
+  },
+  "firstName": "Sven",
+  "lastName": "Suk",
+  "gender": "Male",
+  "dateOfBirth": {
+    "$date": "2001-08-19T22:00:00.000Z"
+  },
+  "email": "suk.sven@gmail.com",
+  "country": "Croatia",
+  "tickets": [
+    "1123",
+    "1114",
+    "1125"
+  ],
+  "_class": "com.tvuksan.xdefconference.user.User",
+  "role": "user",
+  "password": "slanatvornica2023"
+}]
