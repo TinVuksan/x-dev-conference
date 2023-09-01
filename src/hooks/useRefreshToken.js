@@ -13,14 +13,14 @@ const useRefreshToken = () => {
       }
     );
 
-    console.log("Token refresh successfull: " + response);
+    console.log("Token refresh successful: " + response);
 
-    // setAuth((prev) => {
-    //   console.log(JSON.stringify(prev));
-    //   console.log(response);
-    //   console.log(response.data.token);
-    //   return { ...prev, token: response.data.token };
-    // });
+    setAuth((prev) => {
+      console.log(JSON.stringify(prev));
+      console.log(response);
+      console.log(response.data.token);
+      return { ...prev, accessToken: response.data };
+    });
 
     return response.data;
   };

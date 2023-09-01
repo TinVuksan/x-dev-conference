@@ -8,7 +8,7 @@ const Footer = () => {
         <h4 id="footer-text">Trg Bana Josipa Jelačića 5</h4>
         <h4 id="footer-text">Zagreb, Croatia</h4>
         <a
-          href="https://goo.gl/maps/7b6XRnAjABuaHDoQ9"
+          href="https://www.google.com/maps/@45.7727259,15.9408551,3a,66.2y,131.28h,95.25t/data=!3m6!1e1!3m4!1srOK1VF3QB9YYUKwjSSYAcw!2e0!7i16384!8i8192?entry=ttu"
           target="_blank"
           id="footer-map-link"
         >

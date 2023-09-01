@@ -39,20 +39,6 @@
 
 /* SPEAKERS CARDS */
 
-.cards-container {
-  width: 90%;
-  margin: 1vh auto;
-  --min: 35ch;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.cards-container > * {
-  flex: 1 1 var(--min);
-}
-
 .hide {
   visibility: hidden;
 }
