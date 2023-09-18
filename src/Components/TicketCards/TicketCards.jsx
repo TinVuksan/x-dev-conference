@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import TicketConfirmDialog from "./TicketConfirmDialog";
 import axiosConfig from "../../API/axiosConfig";
 import styles from "./tickets.module.css";
-const TicketCards = () => {
+const TicketCards = ({ onSnackbarOpen, message, purchaseStatus }) => {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
@@ -51,7 +51,11 @@ const TicketCards = () => {
             </Card.Text>
           </Card.Body>
           <Card.Footer className={styles.ticketFooter}>
-            <TicketConfirmDialog ticket={ticket} />
+            <TicketConfirmDialog
+              ticket={ticket}
+              onSnackbarOpen={onSnackbarOpen}
+              purchaseStatus={purchaseStatus}
+            />
             <h2>{ticket.price > 0 ? ticket.price + "€" : "FREE"}</h2>
           </Card.Footer>
         </Card>

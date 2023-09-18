@@ -1,3 +1,9 @@
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <section id="bottom-footer">
@@ -21,10 +27,30 @@ const Footer = () => {
           To learn more about this event, find us on social media below.
         </h4>
         <div id="footer-grid-container">
-          <div id="footer-grid-cell"></div>
-          <div id="footer-grid-cell"></div>
-          <div id="footer-grid-cell"></div>
-          <div id="footer-grid-cell"></div>
+          <Link to="https://www.facebook.com" target="_blank">
+            <FacebookIcon
+              id="footer-grid-cell"
+              sx={{ color: "#4267B2", cursor: "pointer", fontSize: "3rem" }}
+            />
+          </Link>
+          <Link to="https://www.youtube.com" target="_blank">
+            <YouTubeIcon
+              id="footer-grid-cell"
+              sx={{ color: "#FF0000", cursor: "pointer", fontSize: "3rem" }}
+            />
+          </Link>
+          <Link to="https://www.linkedin.com" target="_blank">
+            <LinkedInIcon
+              id="footer-grid-cell"
+              sx={{ color: "#0077B5", cursor: "pointer", fontSize: "3rem" }}
+            />
+          </Link>
+          <Link to="https://www.instagram.com" target="_blank">
+            <InstagramIcon
+              id="footer-grid-cell"
+              sx={{ color: "#C13584", cursor: "pointer", fontSize: "3rem" }}
+            />
+          </Link>
         </div>
       </div>
     </section>

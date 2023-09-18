@@ -12,8 +12,8 @@
 .ticketCard {
   background: radial-gradient(
     circle,
-    rgb(189, 164, 190) 0%,
-    rgb(190, 163, 194) 100%
+    rgb(227, 214, 228) 0%,
+    rgb(235, 205, 240) 100%
   );
   transition: transform 0.3s;
   box-shadow: 5px 6px 15px 5px rgba(0, 0, 0, 0.5),

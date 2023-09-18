@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import { AuthProvider } from "./context/AuthProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
-//FONTS
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

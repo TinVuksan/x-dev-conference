@@ -7,16 +7,20 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { forwardRef, useState } from "react";
 import axiosConfig from "../../API/axiosConfig";
+import { Snackbar } from "@mui/material";
+import MuiAlert from "@mui/material/Alert";
 
-const LOGIN_URL = "/tickets/buy";
+const SUCCESS_MESSAGE = "Ticket ordered successfully.";
+const ERROR_MESSAGE = "Error when trying to order a ticket.";
+
+const TICKET_BUY_URL = "/tickets/buy";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function TicketConfirmDialog({ ticket }) {
+export default function TicketConfirmDialog({ ticket, onSnackbarOpen }) {
   const [open, setOpen] = useState(false);
-  const [purchaseStatus, setPurchaseStatus] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -28,14 +32,18 @@ export default function TicketConfirmDialog({ ticket }) {
 
   const handleBuyTicket = async () => {
     try {
-      const response = await axiosConfig.post(LOGIN_URL, ticket, {
+      await axiosConfig.post(TICKET_BUY_URL, ticket, {
         withCredentials: true,
       });
-      setPurchaseStatus(response.data);
+
       handleClose();
+
+      onSnackbarOpen(SUCCESS_MESSAGE, "success");
     } catch (e) {
       console.error("Error buying tickets", e);
-      setPurchaseStatus("Error buying ticket.");
+      handleClose();
+
+      onSnackbarOpen(ERROR_MESSAGE, "error");
     }
   };
 
@@ -55,7 +63,6 @@ export default function TicketConfirmDialog({ ticket }) {
           <DialogContentText id="alert-dialog-slide-description">
             Are you sure you want to order the "{ticket.type.toUpperCase()}"
             ticket?
-            {purchaseStatus && <p>{purchaseStatus}</p>}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

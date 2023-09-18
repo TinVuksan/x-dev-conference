@@ -41,9 +41,23 @@ const Login = () => {
       );
       console.log(JSON.stringify(response?.data));
       console.log(JSON.stringify(response));
-      const accessToken = response?.data?.jwtToken;
+      const jwtToken = response?.data?.jwtToken;
       const roles = response?.data?.roles;
-      setAuth({ email, password, accessToken, roles });
+      const firstName = response?.data?.firstName;
+      const id = response?.data?.id;
+      setAuth((prev) => {
+        console.log(JSON.stringify(prev));
+        console.log(response);
+        console.log(response.data.jwtToken);
+        //email, firstName, id, jwtToken, roles
+        return {
+          email: response.data.email,
+          firstName: response.data.firstName,
+          id: response.data.id,
+          jwtToken: response.data.jwtToken,
+          roles: response.data.roles,
+        };
+      });
       setEmail("");
       setPassword("");
       navigate("/home", { replace: true });

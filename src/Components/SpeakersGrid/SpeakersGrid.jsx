@@ -1,15 +1,25 @@
-import { Card, Container } from "react-bootstrap";
-import axiosConfig from "../../API/axiosConfig";
 import { useState, useEffect } from "react";
 import SpeakerImage from "./SpeakerImage";
 import styles from "./speakersgrid.module.css";
-import { Link } from "react-router-dom";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import useRefreshToken from "../../hooks/useRefreshToken";
 import useAuth from "../../hooks/useAuth";
+import {
+  Grid,
+  Card,
+  CardContent,
+  Typography,
+  Button,
+  Dialog,
+  DialogContent,
+  Container,
+} from "@mui/material";
+import SpeakerModal from "./SpeakerModal";
 
 const SpeakersGrid = () => {
   const [speakers, setSpeakers] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedSpeaker, setSelectedSpeaker] = useState(null);
+
   const axiosPrivate = useAxiosPrivate();
   const { auth } = useAuth();
   console.log(auth);
@@ -37,27 +47,41 @@ const SpeakersGrid = () => {
       controller.abort();
     };
   }, [auth]);
+
+  const handleCardClick = (speaker) => {
+    setSelectedSpeaker(speaker);
+    setIsModalOpen(true);
+  };
   return (
-    <Container fluid="md" role="presentation" className={styles.cardsContainer}>
-      {speakers.map((speaker) => (
-        <Link
-          style={{ textDecoration: "none", color: "inherit" }}
-          to={`/speakers/${speaker.id}`}
-          key={speaker.id}
-        >
-          <Card key={speaker.id} className={styles.card}>
-            <SpeakerImage imageData={speaker.image} />
-            <Card.Body className={styles.speakerBody}>
-              <Card.Title className={styles.speakerTitle}>
-                {speaker.name}
-              </Card.Title>
-              <Card.Text className={styles.speakerText}>
-                {speaker.position}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Link>
-      ))}
+    <Container fluid="md">
+      <Grid container spacing={2} mt={1}>
+        {speakers.map((speaker) => (
+          <Grid item key={speaker.id} xs={12} sm={6} md={4}>
+            <Card
+              onClick={() => handleCardClick(speaker)}
+              className={styles.cardElement}
+            >
+              {/* Assuming SpeakerImage is a separate component */}
+              <SpeakerImage imageData={speaker.image} />
+              <CardContent className={styles.speakerBody}>
+                <Typography variant="h6" className={styles.speakerTitle}>
+                  {speaker.name}
+                </Typography>
+                <Typography variant="body1" className={styles.speakerText}>
+                  {speaker.position}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+
+      {/* Modal */}
+      <SpeakerModal
+        selectedSpeaker={selectedSpeaker}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </Container>
   );
 };

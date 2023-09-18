@@ -1,7 +1,41 @@
 import "./style.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { useEffect, useState } from "react";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import TeamMembersList from "./TeamMembersList";
 const About = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const axiosPrivate = useAxiosPrivate();
+
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const getTeamMembers = async () => {
+      try {
+        const response = await axiosPrivate.get("/users/admins", {
+          signal: controller.signal,
+        });
+        console.log(response.data);
+        isMounted && setTeamMembers(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+        setLoading(false);
+      }
+    };
+
+    getTeamMembers();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, []);
+
   return (
     <>
       <section id="section-main">
@@ -51,12 +85,22 @@ const About = () => {
           </div>
         </section>
       </section>
-
       <section id="section-team">
         <div id="speakers-title">
           <h2>OUR TEAM</h2>
           <h1>MEET OUR TEAM MANAGEMENT</h1>
+
+          <div id="speakers-cards-container">
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <TeamMembersList teamMembers={teamMembers} />
+            )}
+          </div>
         </div>
+      </section>
+      {/* <section id="section-team">
+        <div id="speakers-title"></div>
         <div id="speakers-cards-container">
           <img
             id="arrow-left"
@@ -96,7 +140,7 @@ const About = () => {
             alt="Right arrow"
           />
         </div>
-      </section>
+      </section> */}
 
       <section id="section-buy">
         <div id="buy-title">

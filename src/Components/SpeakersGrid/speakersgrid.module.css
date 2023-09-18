@@ -7,8 +7,17 @@
   gap: 1.5rem;
 }
 
-.card {
+.cardElement {
   border: none;
+  transition: transform 0.3s;
+  box-shadow: 5px 6px 15px 5px rgba(0, 0, 0, 0.5),
+    0 6px 20px 5px rgba(0, 0, 0, 0.5);
+  background-color: red;
+}
+
+.cardElement:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .cardsContainer > * {
@@ -37,4 +46,20 @@
 
 .speakerBody {
   background: rgba(209, 201, 232, 0.955);
+}
+
+.speakerCardBody {
+  margin-top: 20px;
+}
+
+.speakerCardEmail {
+  margin-top: 15px;
+}
+
+.speakerCardBio {
+  margin-top: 15px;
+}
+
+.speakerCardButton {
+  margin-top: 25px;
 }

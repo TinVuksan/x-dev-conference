@@ -18,10 +18,16 @@ const useRefreshToken = () => {
     setAuth((prev) => {
       console.log(JSON.stringify(prev));
       console.log(response);
-      console.log(response.data.token);
-      return { ...prev, accessToken: response.data };
+      console.log(response.data.jwtToken);
+      //email, firstName, id, jwtToken, roles
+      return {
+        email: response.data.email,
+        firstName: response.data.firstName,
+        id: response.data.id,
+        jwtToken: response.data.jwtToken,
+        roles: response.data.roles,
+      };
     });
-
     return response.data;
   };
 

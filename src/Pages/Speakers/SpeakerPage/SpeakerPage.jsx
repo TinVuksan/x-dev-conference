@@ -11,32 +11,32 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
-const SpeakerPage = () => {
-  const [speaker, setSpeaker] = useState({});
-  const { id } = useParams();
-  useEffect(() => {
-    let isMounted = true;
-    const controller = new AbortController();
-    console.log(id);
-    const getSpeaker = async () => {
-      try {
-        const response = await axiosPrivate.get(`/speakers/get/${id}`, {
-          signal: controller.signal,
-        });
-        console.log(response.data);
-        isMounted && setSpeaker(response.data);
-      } catch (err) {
-        console.log("Error fetching speaker details: ", err);
-      }
-    };
+const SpeakerPage = ({ speaker }) => {
+  //const [speaker, setSpeaker] = useState({});
+  // const { id } = useParams();
+  // useEffect(() => {
+  //   let isMounted = true;
+  //   const controller = new AbortController();
+  //   console.log(id);
+  //   const getSpeaker = async () => {
+  //     try {
+  //       const response = await axiosPrivate.get(`/speakers/get/${id}`, {
+  //         signal: controller.signal,
+  //       });
+  //       console.log(response.data);
+  //       isMounted && setSpeaker(response.data);
+  //     } catch (err) {
+  //       console.log("Error fetching speaker details: ", err);
+  //     }
+  //   };
 
-    getSpeaker();
+  //   getSpeaker();
 
-    return () => {
-      isMounted = false;
-      controller.abort();
-    };
-  }, []);
+  //   return () => {
+  //     isMounted = false;
+  //     controller.abort();
+  //   };
+  // }, []);
 
   return (
     <>

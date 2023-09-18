@@ -6,13 +6,11 @@ import useAuth from "./useAuth";
 const useAxiosPrivate = () => {
   const refresh = useRefreshToken();
   const { auth } = useAuth();
-  console.log("useAxiosPrivate komponenta");
   useEffect(() => {
-    console.log("Useeffect u useAxiosPrivate");
     const requestIntercept = axiosPrivate.interceptors.request.use(
       (config) => {
         if (!config.headers["Authorization"]) {
-          config.headers["Authorization"] = `Bearer ${auth?.accessToken}`;
+          config.headers["Authorization"] = `Bearer ${auth?.jwtToken}`;
         }
         return config;
       },
@@ -22,13 +20,15 @@ const useAxiosPrivate = () => {
     const responseIntercept = axiosPrivate.interceptors.response.use(
       (response) => response,
       async (error) => {
+        console.log("ResponseIntercept error: ", error);
         const prevRequest = error?.config;
         if (error?.response?.status === 401 && !prevRequest?.sent) {
           prevRequest.sent = true;
           try {
+            console.log("Attempting token refresh...");
             const newAccessToken = await refresh();
+            console.log("Token refresh successful.");
             prevRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
-            console.log("ResponseIntercept if");
             return axiosPrivate(prevRequest);
           } catch (refreshError) {
             console.error("Error refreshing token: ", refreshError);
@@ -36,7 +36,6 @@ const useAxiosPrivate = () => {
           }
         }
 
-        console.log("ResponseIntercept izvan if");
         return Promise.reject(error);
       }
     );

@@ -1,0 +1,52 @@
+.newsPaper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 45vh;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+.newsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.newsHeaderTitle {
+  max-width: 70%; /* Adjust the percentage as needed */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.articleContent {
+  margin-top: 65px;
+  flex-grow: 1;
+  margin-left: 5px;
+}
+
+.readMoreButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.articleImage {
+  width: 100%;
+  height: auto;
+}
+
+.blurredBackground {
+  backdrop-filter: blur(2px); /* Adjust the blur value as needed */
+  background-color: rgba(0, 0, 0, 0.3);
+  will-change: contents;
+}
+
+.newsBackground {
+  padding: 0;
+  height: auto;
+  width: auto;
+  background-color: rgba(128, 55, 73, 0.3);
+}
