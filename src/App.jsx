@@ -9,22 +9,31 @@ import Speakers from "./Pages/Speakers/Speakers";
 import Pricing from "./Pages/Pricing/Pricing";
 import About from "./Components/About/About";
 import News from "./Pages/News/News";
+import Schedule from "./Pages/Schedule/Schedule";
+import Footer from "./Components/Footer/Footer";
+import ContactUs from "./Pages/Contact/ContactUs";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Login></Login>} />
-      <Route path="/signup" element={<Signup></Signup>} />
-      <Route element={<PersistLogin />}>
-        <Route element={<RequireAuth />}>
-          <Route path="/home" element={<Home></Home>} />
-          <Route path="/about" element={<About></About>} />
-          <Route path="/speakers" element={<Speakers></Speakers>} />
-          <Route path="/pricing" element={<Pricing></Pricing>} />
-          <Route path="/news" element={<News></News>} />
-        </Route>
-      </Route>
-    </Routes>
+    <div id="app-container">
+      <div id="content">
+        <Routes>
+          <Route path="/" element={<Login></Login>} />
+          <Route path="/signup" element={<Signup></Signup>} />
+          <Route element={<PersistLogin />}>
+            <Route element={<RequireAuth />}>
+              <Route path="/home" element={<Home></Home>} />
+              <Route path="/about" element={<About></About>} />
+              <Route path="/speakers" element={<Speakers></Speakers>} />
+              <Route path="/pricing" element={<Pricing></Pricing>} />
+              <Route path="/news" element={<News></News>} />
+              <Route path="/schedule" element={<Schedule></Schedule>} />
+              <Route path="/contact" element={<ContactUs></ContactUs>} />
+            </Route>
+          </Route>
+        </Routes>
+      </div>
+    </div>
   );
 }
 

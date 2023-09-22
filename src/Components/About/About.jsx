@@ -4,9 +4,12 @@ import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import TeamMembersList from "./TeamMembersList";
+import { useNavigate } from "react-router-dom";
 const About = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   const axiosPrivate = useAxiosPrivate();
 
@@ -89,58 +92,14 @@ const About = () => {
         <div id="speakers-title">
           <h2>OUR TEAM</h2>
           <h1>MEET OUR TEAM MANAGEMENT</h1>
+        </div>
 
-          <div id="speakers-cards-container">
-            {loading ? (
-              <p>Loading...</p>
-            ) : (
-              <TeamMembersList teamMembers={teamMembers} />
-            )}
-          </div>
-        </div>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <TeamMembersList teamMembers={teamMembers} />
+        )}
       </section>
-      {/* <section id="section-team">
-        <div id="speakers-title"></div>
-        <div id="speakers-cards-container">
-          <img
-            id="arrow-left"
-            src="../../img/arrow-left.png"
-            alt="Left arrow"
-          />
-          <div id="speakers-card">
-            <img
-              id="speaker-image"
-              src="../../img/Speaker1.png"
-              alt="Speaker 1"
-            />
-            <h2 id="speaker-name">Jane McDonald</h2>
-            <h3 id="speaker-position">CEO@Google</h3>
-          </div>
-          <div id="speakers-card">
-            <img
-              id="speaker-image"
-              src="../../img/Speaker2.png"
-              alt="Speaker 2"
-            />
-            <h2 id="speaker-name">Kate Cho</h2>
-            <h3 id="speaker-position">HR@Amazon</h3>
-          </div>
-          <div id="speakers-card">
-            <img
-              id="speaker-image"
-              src="../../img/Speaker3.png"
-              alt="Speaker 3"
-            />
-            <h2 id="speaker-name">Abdul Naffrani</h2>
-            <h3 id="speaker-position">CTO@Infobip</h3>
-          </div>
-          <img
-            id="arrow-right"
-            src="../../img/arrow-right.png"
-            alt="Right arrow"
-          />
-        </div>
-      </section> */}
 
       <section id="section-buy">
         <div id="buy-title">
@@ -153,7 +112,9 @@ const About = () => {
         </div>
 
         <div id="button-container">
-          <button id="buy-button">Buy Tickets</button>
+          <button id="buy-button" onClick={() => navigate("/pricing")}>
+            Buy Tickets
+          </button>
         </div>
       </section>
       <Footer />

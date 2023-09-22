@@ -1,0 +1,48 @@
+.accordionContainer {
+  max-width: 45;
+  margin-left: 15px;
+  margin-right: 0px;
+}
+.eventCardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Display 3 items per column */
+  gap: 13px;
+}
+
+.accordion {
+  margin: 10px;
+  background: #fe54fe24;
+  border-radius: 5px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px !important;
+}
+
+.summary {
+  background-color: #dcb3fd;
+  border-bottom: 1px solid #ccc;
+}
+
+.details {
+  padding: 16px;
+}
+
+.dateText {
+  font-weight: 600 !important;
+}
+
+.eventText {
+  margin-left: 16px;
+}
+
+.eventCard {
+  margin-bottom: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 15vw;
+}
+
+.eventTitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+}

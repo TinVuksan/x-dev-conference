@@ -303,6 +303,7 @@ const Signup = () => {
                     setFieldValue("country", selectedValue);
                     console.log(selectedValue);
                   }}
+                  menuPlacement="top"
                   isClearable
                   isSearchable
                 />

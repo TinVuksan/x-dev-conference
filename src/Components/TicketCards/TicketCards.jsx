@@ -38,15 +38,36 @@ const TicketCards = ({ onSnackbarOpen, message, purchaseStatus }) => {
           <Card.Body>
             <Card.Text>
               <ul className={styles.ticketText}>
-                <li>All days Conference Pass</li>
-                <li>Access to Multiple Stages</li>
-                <li>Access to Exhibition Area</li>
-                <li>Lunch & Refreshments</li>
-                <li>Access to Evening Social Events</li>
-                <li>Masterclasses (Workshops)</li>
-                <li>Virtual Conference Pass</li>
-                <li>On-demand recordings</li>
-                <li>Virtual networking</li>
+                {ticket.type == "standard" && (
+                  <>
+                    <li>All days Conference Pass</li>
+                    <li>Access to Multiple Stages</li>
+                    <li>Access to Exhibition Area</li>
+                    <li>Lunch & Refreshments</li>
+                    <li>Access to Evening Social Events</li>
+                  </>
+                )}
+                {ticket.type == "full" && (
+                  <>
+                    <li>All days Conference Pass</li>
+                    <li>Access to Multiple Stages</li>
+                    <li>Access to Exhibition Area</li>
+                    <li>Lunch & Refreshments</li>
+                    <li>Access to Evening Social Events</li>
+                    <li>Masterclasses (Workshops)</li>
+                    <li>Virtual Conference Pass</li>
+                    <li>On-demand recordings</li>
+                    <li>Virtual networking</li>
+                  </>
+                )}
+                {ticket.type == "student" && (
+                  <>
+                    {" "}
+                    <li>Virtual Conference Pass</li>
+                    <li>On-demand recordings</li>
+                    <li>Virtual networking</li>
+                  </>
+                )}
               </ul>
             </Card.Text>
           </Card.Body>
@@ -56,7 +77,7 @@ const TicketCards = ({ onSnackbarOpen, message, purchaseStatus }) => {
               onSnackbarOpen={onSnackbarOpen}
               purchaseStatus={purchaseStatus}
             />
-            <h2>{ticket.price > 0 ? ticket.price + "€" : "FREE"}</h2>
+            <h2>{ticket.price > 0 ? ticket.price + "$" : "FREE"}</h2>
           </Card.Footer>
         </Card>
       ))}

@@ -1,0 +1,16 @@
+.contactFormContainer {
+  background-color: rgba(190, 156, 197, 0.5);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  height: 90vh;
+}
+
+.contactFormTitle {
+  color: rgb(254, 233, 255);
+  font-weight: 400;
+}
+
+.formError {
+  color: rgb(255, 171, 92);
+}

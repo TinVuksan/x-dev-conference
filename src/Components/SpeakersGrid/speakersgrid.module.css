@@ -1,33 +1,29 @@
 .cardsContainer {
-  --min: 45ch;
-  margin-top: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  margin-top: 1px;
 }
 
-.cardElement {
+.cardsContainer .cardElement {
   border: none;
+  transform: scale(0.95);
   transition: transform 0.3s;
   box-shadow: 5px 6px 15px 5px rgba(0, 0, 0, 0.5),
     0 6px 20px 5px rgba(0, 0, 0, 0.5);
-  background-color: red;
+  background-color: rgb(0, 0, 0);
 }
 
 .cardElement:hover {
-  transform: scale(1.05);
+  transform: scale(0.99);
   cursor: pointer;
 }
 
-.cardsContainer > * {
-  flex: 1 1 var(--min);
-  max-width: 450px;
+.speakerImage {
+  height: 350px;
+  max-width: 500px;
 }
 
-.speakerImage {
-  height: 500px;
-  max-width: 500px;
+.speakerImageModal {
+  height: 300px;
+  max-width: 250px;
 }
 
 .speakerTitle {

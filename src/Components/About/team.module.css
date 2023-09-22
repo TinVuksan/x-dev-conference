@@ -1,0 +1,15 @@
+.team-members-list-container {
+  display: flex;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  white-space: nowrap;
+  width: 100vw; /* Set the container width to the viewport width */
+  /* Set a fixed height if needed */
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+.team-member-card {
+  flex: 0 0 auto;
+  min-width: 300px;
+  min-height: 50vh; /* Adjust as needed */
+  margin-right: 16px; /* Adjust as needed to add space between cards */
+}

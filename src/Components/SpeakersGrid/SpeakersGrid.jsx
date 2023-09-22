@@ -26,14 +26,11 @@ const SpeakersGrid = () => {
   useEffect(() => {
     let isMounted = true;
     const controller = new AbortController();
-    console.log("GetSpeakers prije requesta auth: ", auth);
     const getSpeakers = async () => {
       try {
         const response = await axiosPrivate.get("/speakers/get", {
           signal: controller.signal,
         });
-        console.log(response.data);
-        console.log("GetSpeakers auth objekt nakon requesta: ", auth);
         isMounted && setSpeakers(response.data);
       } catch (err) {
         console.log(err);
@@ -54,7 +51,7 @@ const SpeakersGrid = () => {
   };
   return (
     <Container fluid="md">
-      <Grid container spacing={2} mt={1}>
+      <Grid container spacing={4} mt={1} className={styles.cardsContainer}>
         {speakers.map((speaker) => (
           <Grid item key={speaker.id} xs={12} sm={6} md={4}>
             <Card
@@ -62,7 +59,10 @@ const SpeakersGrid = () => {
               className={styles.cardElement}
             >
               {/* Assuming SpeakerImage is a separate component */}
-              <SpeakerImage imageData={speaker.image} />
+              <SpeakerImage
+                imageData={speaker.image}
+                className={styles.speakerImage}
+              />
               <CardContent className={styles.speakerBody}>
                 <Typography variant="h6" className={styles.speakerTitle}>
                   {speaker.name}

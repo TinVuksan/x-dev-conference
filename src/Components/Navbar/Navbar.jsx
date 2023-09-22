@@ -1,11 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "../../Pages/home.module.css";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = ({ title }) => {
   const navigate = useNavigate();
   const { auth } = useAuth();
-  console.log(auth);
+  const location = useLocation();
+
+  const isLinkActive = (route) => {
+    return location.pathname === route ? "active" : "";
+  };
+
   return (
     <div id="navbar" className={styles.navbarContainer}>
       <div id="navbar-logo">
@@ -18,25 +23,60 @@ const Navbar = ({ title }) => {
       <div id="navbar-links">
         <ul>
           <li id="navbar-link">
-            <a onClick={() => navigate("/home")}>Home</a>
+            <a
+              onClick={() => navigate("/home")}
+              className={isLinkActive("/home")}
+            >
+              Home
+            </a>
           </li>
           <li id="navbar-link">
-            <a onClick={() => navigate("/about")}>About</a>
+            <a
+              onClick={() => navigate("/about")}
+              className={isLinkActive("/about")}
+            >
+              About
+            </a>
           </li>
           <li id="navbar-link">
-            <a onClick={() => navigate("/speakers")}>Speakers</a>
+            <a
+              onClick={() => navigate("/speakers")}
+              className={isLinkActive("/speakers")}
+            >
+              Speakers
+            </a>
           </li>
           <li id="navbar-link">
-            <a onClick={() => navigate("/pricing")}>Pricing</a>
+            <a
+              onClick={() => navigate("/pricing")}
+              className={isLinkActive("/pricing")}
+            >
+              Pricing
+            </a>
           </li>
           <li id="navbar-link">
-            <a href="#">Schedule</a>
+            <a
+              onClick={() => navigate("/schedule")}
+              className={isLinkActive("/schedule")}
+            >
+              Schedule
+            </a>
           </li>
           <li id="navbar-link">
-            <a onClick={() => navigate("/news")}>News</a>
+            <a
+              onClick={() => navigate("/news")}
+              className={isLinkActive("/news")}
+            >
+              News
+            </a>
           </li>
           <li id="navbar-link">
-            <a href="#">Contact</a>
+            <a
+              onClick={() => navigate("/contact")}
+              className={isLinkActive("/contact")}
+            >
+              Contact
+            </a>
           </li>
         </ul>
       </div>
